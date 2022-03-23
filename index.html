@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>Vue</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div id="app">
+            {{ message }} 
+        </div>
+        
+        <div id="pasatiempos">
+            <ol>
+                <li v-for="p in bucl">
+                    
+                    <input type = "checkbox" v-model = "p.mostrarImagen">
+                    <h3 :class="{ mostrarImagen: p.mostrarImagen }">{{ p.titulo }}</h3>
+                
+        
+                </li>
+            </ol>
+            
+            <button type="button" class="btn btn-primary" @click="boton">
+                {{ bandera ? 'Mostrar imagenes seleccionadas' : 'Ocultar imagenes' }}
+            </button>
+        
+            
+            <ol>
+                <li v-for ="p in pasatiemposFiltrados" :key = "p.id">
+                    <img v-if = "bandera" src = "p.imagen">
+                </li>
+            </ol>
+        
+        </div>
+    
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src = "aux.js"></script>
+    </body>
+</html>
