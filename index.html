@@ -2,36 +2,45 @@
 <html>
     <head>
 
-        <title>Vue</title>
+        <title>Pasatiempos Sofia</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     </head>
     <body>
-        <div id="app">
-            {{ message }} 
-        </div>
-        
-        <div id="pasatiempos">
-            <ol>
-                <li v-for="p in bucl">
-                    
-                    <input type = "checkbox" v-model = "p.mostrarImagen">
-                    <h3 :class="{ mostrarImagen: p.mostrarImagen }">{{ p.titulo }}</h3>
-                
-        
-                </li>
-            </ol>
+        <div class = "container">
             
-            <button type="button" class="btn btn-primary" @click="boton">
-                {{ bandera ? 'Ocultar imagenes' : 'Mostrar hobbies seleccionados' }}
-            </button>
-        
-            <ol v-if = "bandera">
-                <li v-for ="p in pasatiemposFiltrados" :key = "p.id">
-                    <img :src = "p.imagen" width = 500, height = 400>
-                </li>
-            </ol>
-        
+            <div id="app" class = "row pb-5">
+                <h1>
+                    {{ message }}
+                </h1> 
+            </div>
+            
+            <div id="pasatiempos" class = "row">
+                <div class = "col">
+                <ol>
+                    <li v-for="p in bucl">
+                        
+                        <input type = "checkbox" v-model = "p.mostrarImagen">
+                        <h3 :class="{ mostrarImagen: p.mostrarImagen }">{{ p.titulo }}</h3>
+                    
+            
+                    </li>
+                </ol>
+                
+                <button type="button" class="btn btn-primary" @click="boton">
+                    {{ bandera ? 'Ocultar imagenes' : 'Mostrar hobbies seleccionados' }}
+                </button>
+                </div>
+                <div class = "col"></div>
+                    <ul v-if = "bandera">
+                        <li v-for ="p in pasatiemposFiltrados" :key = "p.id">
+                            <img :src = "p.imagen" width = 500, height = 400>
+                        </li>
+                    </ul>
+                </div>
+            
+            </div>
         </div>
+                
     
 
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
