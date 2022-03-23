@@ -22,13 +22,12 @@
             </ol>
             
             <button type="button" class="btn btn-primary" @click="boton">
-                {{ bandera ? 'Mostrar imagenes seleccionadas' : 'Ocultar imagenes' }}
+                {{ bandera ? 'Ocultar imagenes' : 'Mostrar hobbies seleccionados' }}
             </button>
         
-            
-            <ol>
+            <ol v-if = "bandera">
                 <li v-for ="p in pasatiemposFiltrados" :key = "p.id">
-                    <img v-if = "bandera" src = "p.imagen">
+                    <img :src = "p.imagen" width = 500, height = 400>
                 </li>
             </ol>
         

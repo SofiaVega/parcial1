@@ -7,12 +7,12 @@ var pasatiempos = new Vue({
     el: '#pasatiempos',
     data(){
         return {
-            bandera: true,
+            bandera: false,
             bucl: [
-                { id: 1, titulo: "Escribir", imagen: "./imgs/escribir.png", mostrarImagen: false},
-                { id: 2, titulo: "Pintar", imagen: "./imgs/pintar.png", mostrarImagen: false},
-                {id: 3, titulo: "Viajar", imagen: "./imgs/viajar.png", mostrarImagen: false},
-                {id: 4, titulo: "Hiking", imagen: "./imgs/hiking.jpeg", mostrarImagen: false}
+                { id: 1, titulo: "Escribir", imagen: 'imgs/escribir.png', mostrarImagen: false},
+                { id: 2, titulo: "Pintar", imagen: 'imgs/pintar.png', mostrarImagen: false},
+                {id: 3, titulo: "Viajar", imagen: 'imgs/viajar.png', mostrarImagen: false},
+                {id: 4, titulo: "Hiking", imagen: 'imgs/hiking.jpeg', mostrarImagen: false}
             ]
         }
     },
@@ -24,7 +24,7 @@ var pasatiempos = new Vue({
 
     computed: {
         pasatiemposFiltrados() {
-            return this.bucl.filter((t) => !t.mostrarImagen)
+            return this.bucl.filter((t) => t.mostrarImagen)
         }
     }
 
